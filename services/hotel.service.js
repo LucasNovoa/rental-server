@@ -26,8 +26,8 @@ class HotelService {
         postalCode: hotel.postalCode,
         email: hotel.email,
         phones: hotel.phones[0].phoneNumber,
-        children: hotel.rooms?.maxChildren ? hotel.rooms.maxChildren : 0,
-        maxPax: hotel.rooms?.maxPax ? hotel.rooms.maxPax : 0,
+        children: hotel.rooms ? hotel.rooms[0].maxChildren : 1,
+        maxPax: hotel.rooms ? hotel.rooms[0].maxPax : 2,
         gallery: hotel.images
           .filter(
             (img) => img.imageTypeCode === 'GEN' || img.imageTypeCode === 'PIS',
