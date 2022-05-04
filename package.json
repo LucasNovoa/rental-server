@@ -7,7 +7,7 @@
     "lint": "eslint",
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose --silent"
   },
   "keywords": [],
   "author": "",
@@ -16,7 +16,9 @@
     "eslint": "8.14.0",
     "eslint-config-airbnb-base": "15.0.0",
     "eslint-plugin-import": "2.26.0",
-    "nodemon": "2.0.15"
+    "jest": "^28.0.3",
+    "nodemon": "2.0.15",
+    "supertest": "^6.2.3"
   },
   "dependencies": {
     "@hapi/boom": "9.1.4",
