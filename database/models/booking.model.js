@@ -11,32 +11,28 @@ const BookingSchema = {
   },
   checkIn: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   checkOut: {
     type: DataTypes.DATE,
-    allowNull: false
+    allowNull: false,
   },
   nights: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
   },
   pricePerNight: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
   },
   payMethod: {
     type: DataTypes.STRING,
-    allowNull: false
-  },
-  billing: {
-    type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
   },
   isCancelled: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
-    defaultValue: false
+    defaultValue: false,
   },
   createdAt: {
     allowNull: false,
@@ -47,7 +43,20 @@ const BookingSchema = {
 };
 
 class Booking extends Model {
-  static associate() {}
+  static associate(models) {
+    this.belongsTo(models.User, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+    this.belongsTo(models.Hotel, {
+      foreignKey: {
+        allowNull: false,
+      },
+    });
+    this.hasOne(models.Billing);
+    this.hasOne(models.Review);
+  }
 
   static config(sequelize) {
     return {

@@ -10,19 +10,19 @@ const UserSchema = {
     type: DataTypes.INTEGER,
   },
   typePerson: {
-    type: DataTypes.ENUM ('natural', 'legal'),
-    allowNull: false
+    type: DataTypes.ENUM('natural', 'legal'),
+    allowNull: false,
   },
   firstName: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.STRING,
   },
   lastName: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.STRING,
   },
   organization: {
-    allowNull: false,
+    allowNull: true,
     type: DataTypes.STRING,
     unique: true,
   },
@@ -45,7 +45,8 @@ const UserSchema = {
   },
   role: {
     allowNull: false,
-    type: DataTypes.ENUM ('admin', 'customer', 'owner'),
+    type: DataTypes.ENUM('admin', 'customer', 'owner'),
+    defaultValue: 'customer',
   },
   image: {
     allowNull: false,
@@ -53,12 +54,12 @@ const UserSchema = {
     defaultValue: 'https://www.nicepng.com/png/detail/933-9332131_profile-picture-default-png.png',
   },
   favHotels: {
-    type: DataTypes.ARRAY (DataTypes.JSON)
+    type: DataTypes.ARRAY(DataTypes.JSON),
   },
-  isSuscribed: {
+  isSubscribed: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
-    defaultValue: true
+    defaultValue: true,
   },
   isBanned: {
     allowNull: false,
@@ -79,7 +80,12 @@ const UserSchema = {
 };
 
 class User extends Model {
-  static associate() {}
+  static associate(models) {
+    this.hasMany(models.Hotel);
+    this.hasMany(models.Review);
+    this.hasMany(models.Booking);
+    this.hasMany(models.Billing);
+  }
 
   static config(sequelize) {
     return {
