@@ -40,7 +40,7 @@ class BookingService {
   async create(body) {
     const { email, organization, firstName } = await models.User.findByPk(body.UserId);
     const hotelData = await models.Hotel.findByPk(body.HotelId);
-    const { mainImage, name, price } = hotelData.dataValues;
+    const { mainImage, name, price } = hotelData?.dataValues;
     const bookingFrom = moment(`${body.checkIn.slice(6, 10)}/${body.checkIn.slice(3, 5)}/${body.checkIn.slice(0, 2)}`);
     const bookingTo = moment(`${body.checkOut.slice(6, 10)}/${body.checkOut.slice(3, 5)}/${body.checkOut.slice(0, 2)}`);
     const stay = bookingTo.diff(bookingFrom, 'days');
@@ -52,7 +52,7 @@ class BookingService {
       nights: stay,
     });
     const {
-      id, checkIn, checkOut, nights, pricePerNight,
+      id, checkIn, checkOut, pricePerNight,
     } = newBooking.dataValues;
     const totalPrice = stay * pricePerNight;
     const setExpDateFrom = new Date(new Date().setHours(new Date().getHours() - 3)).toJSON();
@@ -71,9 +71,9 @@ class BookingService {
         },
       ],
       back_urls: {
-        success: 'https://rental-app-client.netlify.app',
-        failure: 'https://rental-app-client.netlify.app/profile',
-        pending: 'https://rental-app-client.netlify.app/profile',
+        success: 'https://rental-x.netlify.app',
+        failure: 'https://rental-x.netlify.app/profile',
+        pending: 'https://rental-x.netlify.app/profile',
       },
       auto_return: 'approved',
       payment_methods: {
@@ -112,7 +112,7 @@ class BookingService {
       <p>Check Out: ${checkOut} a las 10 hora local</p>
       <p>Monto a pagar: ARS ${totalPrice}</p>
       <p>Muchas gracias!</p>
-      <a href='https://rental-app-client.netlify.app/profile'>Ir a tu perfil en Rental App para ver tus reservas</a>`,
+      <a href='https://rental-x.netlify.app/profile'>Ir a tu perfil en Rental App para ver tus reservas</a>`,
     };
 
     await this.sendMail(mail);
