@@ -73,7 +73,7 @@ class UserService {
       <a href='https://rental-bookings.netlify.app/'>Ir a Rental-App</a>`,
     };
 
-    // await this.sendMail(mail);
+    await this.sendMail(mail);
 
     return newUser;
   }

@@ -115,7 +115,7 @@ class BookingService {
       <a href='https://rental-bookings.netlify.app/profile'>Ir a tu perfil en Rental App para ver tus reservas</a>`,
     };
 
-    // await this.sendMail(mail);
+    await this.sendMail(mail);
 
     return booking;
   }
