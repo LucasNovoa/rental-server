@@ -83,8 +83,8 @@ class ReviewService {
         to: reviewer.User.email,
         subject: 'Cuéntanos sobre tu estadía!',
         html: `<h4>Hola ${reviewer.User.organization || reviewer.User.firstName}, queremos saber como fue tu experiencia en ${reviewer.hotelName}.</h4>
-        <p>Cuéntale a la comunidad de Rental App como fue tu experiencia, dejando una breve reseña <a href='https://rental-app-client.netlify.app/profile'>aquí</a>.</p>
-        <p>Te esperamos en tu próxima reserva, el equipo de <a href='https://rental-app-client.netlify.app'>Rental App</a></p>`,
+        <p>Cuéntale a la comunidad de Rental App como fue tu experiencia, dejando una breve reseña <a href='https://rental-bookings.netlify.app/profile'>aquí</a>.</p>
+        <p>Te esperamos en tu próxima reserva, el equipo de <a href='https://rental-bookings.netlify.app'>Rental App</a></p>`,
       };
       await this.sendMail(mail);
     });

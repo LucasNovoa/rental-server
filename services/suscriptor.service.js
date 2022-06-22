@@ -40,7 +40,7 @@ class SuscriptorService {
       html: `<h4>Hola, gracias por suscribirte a Rental App!</h4>
       <p>En Rental encontrarás una variada gama de hospedajes para que tu viaje sea una experiencia única.</p>
       <p>Y si dispones de una propiedad para alquiler, no dudes en sumarte para aprovechar nuestra gran red de inquilinos y viajeros!</p>
-      <a href='https://rental-app-client.netlify.app/'>Visita Rental-App y encontra lo que estas buscando!</a>`,
+      <a href='https://rental-bookings.netlify.app/'>Visita Rental-App y encontra lo que estas buscando!</a>`,
     };
 
     await this.sendMail(mail);
@@ -101,7 +101,7 @@ class SuscriptorService {
         html: `<h4>Hola, te dejamos a disposición nuestras últimas novedades y artículos de interés.</h4>
         <p>En Rental encontrarás una variada gama de hospedajes para que tu viaje sea una experiencia única.</p>
         <p>Y si dispones de una propiedad para alquiler, no dudes en sumarte para aprovechar nuestra gran red de inquilinos y viajeros!</p>
-        <a href='https://rental-app-client.netlify.app/'>Visita Rental-App y encontra lo que estas buscando!</a>`,
+        <a href='https://rental-bookings.netlify.app/'>Visita Rental-App y encontra lo que estas buscando!</a>`,
       };
       await this.sendMail(mail);
     });

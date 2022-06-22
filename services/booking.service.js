@@ -71,9 +71,9 @@ class BookingService {
         },
       ],
       back_urls: {
-        success: 'https://rental-x.netlify.app',
-        failure: 'https://rental-x.netlify.app/profile',
-        pending: 'https://rental-x.netlify.app/profile',
+        success: 'https://rental-bookings.netlify.app',
+        failure: 'https://rental-bookings.netlify.app/profile',
+        pending: 'https://rental-bookings.netlify.app/profile',
       },
       auto_return: 'approved',
       payment_methods: {
@@ -112,10 +112,10 @@ class BookingService {
       <p>Check Out: ${checkOut} a las 10 hora local</p>
       <p>Monto a pagar: ARS ${totalPrice}</p>
       <p>Muchas gracias!</p>
-      <a href='https://rental-x.netlify.app/profile'>Ir a tu perfil en Rental App para ver tus reservas</a>`,
+      <a href='https://rental-bookings.netlify.app/profile'>Ir a tu perfil en Rental App para ver tus reservas</a>`,
     };
 
-    await this.sendMail(mail);
+    // await this.sendMail(mail);
 
     return booking;
   }

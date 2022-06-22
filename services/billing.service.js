@@ -59,7 +59,7 @@ class BillingService {
       <p>Check Out: ${data.Booking.checkOut} a las 10 hora local</p>
       <p>Monto pagado: ARS ${data.total}</p><br/>
       <p>Muchas gracias!</p>
-      <p>Te esperamos en tu próxima reserva, el equipo de <a href='https://rental-app-client.netlify.app'>Rental App</a></p>`,
+      <p>Te esperamos en tu próxima reserva, el equipo de <a href='https://rental-bookings.netlify.app'>Rental App</a></p>`,
     };
     await this.sendMail(mail);
     return newBilling;

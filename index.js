@@ -14,7 +14,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
-const whitelist = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'https://rental-x.netlify.app', 'https://rental-x-server.herokuapp.com', 'https://rental-dashboard-opal.vercel.app'];
+const whitelist = ['http://localhost:3000', 'http://localhost:3001', 'http://localhost:3002', 'https://rental-bookings.netlify.app', 'https://rental-bookings-server.herokuapp.com', 'https://rental-dashboard-opal.vercel.app'];
 
 const corsOptions = {
   origin(origin, callback) {
