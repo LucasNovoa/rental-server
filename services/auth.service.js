@@ -68,7 +68,6 @@ class AuthService {
       <p>Si no has sido tú quien realizó el pedido desestima este correo.</p><br/>     
       <p>Te esperamos en tu próxima reserva!</p>
       <a href='https://rental-bookings.netlify.app/'>Ir a Rental-App</a>`,
-      html: `<b>Ingresa a este Link => <a href="${link}">${link}</a></b>`,
     };
 
     const rta = await this.sendMail(mail);
