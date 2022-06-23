@@ -62,7 +62,12 @@ class AuthService {
     const mail = {
       from: config.smtpEmail,
       to: `${user.email}`,
-      subject: 'Email to Recovery Password',
+      subject: 'Rental App • Cambiar Contraseña',
+      html: `<h4>Hola ${user.organization || user.firstName},</h4>
+      <p>Hemos recibido una solicitud para cambiar tu contraseña. Puedes hacerlo haciendo click <a href="${link}">aquí</a>.</p>
+      <p>Si no has sido tú quien realizó el pedido desestima este correo.</p><br/>     
+      <p>Te esperamos en tu próxima reserva!</p>
+      <a href='https://rental-bookings.netlify.app/'>Ir a Rental-App</a>`,
       html: `<b>Ingresa a este Link => <a href="${link}">${link}</a></b>`,
     };
 
