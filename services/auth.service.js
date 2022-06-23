@@ -55,7 +55,7 @@ class AuthService {
 
     const token = jwt.sign(payload, config.jwtSecret, { expiresIn: '15min' });
 
-    const link = `http://localhost:3000/changePassword?token=${token}`;
+    const link = `https://rental-bookings.netlify.app/changePassword?token=${token}`;
 
     await service.update(user.id, { recoveryToken: token });
 
